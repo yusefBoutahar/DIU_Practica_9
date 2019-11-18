@@ -311,8 +311,18 @@ public class p9 extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
         modeloCampos.clear();
+
+        if(listaTablas.getSelectedIndices().length == 0){
+            JOptionPane.showMessageDialog(null,
+                "Seleccione las tablas", "",
+                JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
         String nombreTabla;
         int seleccionados[] = listaTablas.getSelectedIndices();
+        
+        
         
         for (int seleccionado : seleccionados) {
             try {
@@ -331,13 +341,8 @@ public class p9 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void closeWindow() throws SQLException {
-        /*
-        int exitValue = JOptionPane.showConfirmDialog(null,
-                "¿Está seguro de que desea salir de la aplicación?.", "Salir",
-                JOptionPane.YES_NO_OPTION);
-        */
-        
-        Icon m = new ImageIcon(getClass().getResource("C:\\Users\\yusef\\Desktop\\Mi Horario.png\\") );
+
+        Icon m = new ImageIcon("C:\\Users\\yusef\\Desktop\\icono_salir.jpg\\");
         String[] options = {"Salir", "Cerrar sesiòn"};
         int exitValue = JOptionPane.showOptionDialog(null, 
                 "Es necesario que seleccione una opcion", 
@@ -352,7 +357,14 @@ public class p9 extends javax.swing.JFrame {
             login.con.close();
             System.exit(0);
         } else {
-            setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            
+            // no crea la ventana login y cierra la ventana actual
+            System.out.println("estamos dentro de cerrar sesion");
+            new login().setVisible(true);
+            this.setVisible(false);
+            System.exit(0);
+            
+            
         }
 
         
