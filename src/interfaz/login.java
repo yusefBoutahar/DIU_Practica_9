@@ -167,7 +167,6 @@ public class login extends javax.swing.JFrame {
         }else{
             loginButton.setEnabled(true);
         }
-
             
     }//GEN-LAST:event_loginButtonActionPerformed
     

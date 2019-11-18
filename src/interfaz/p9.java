@@ -33,7 +33,10 @@ public class p9 extends javax.swing.JFrame {
     public p9(DatabaseMetaData md) {
         initComponents();
         this.setResizable(false);
-
+        
+        this.borrarLista.setEnabled(false);
+        this.borrarSeleccion.setEnabled(false);
+        this.borrrCampos.setEnabled(false);
         
         this.tablasSeleccionadas = new ArrayList();
         this.md = md;
@@ -70,13 +73,13 @@ public class p9 extends javax.swing.JFrame {
         boton3 = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaTablas = new javax.swing.JList();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        borrarLista = new javax.swing.JButton();
+        borrarSeleccion = new javax.swing.JButton();
         panelCampos = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaCampos = new javax.swing.JList();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        mostrarCampos = new javax.swing.JButton();
+        borrrCampos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -141,17 +144,17 @@ public class p9 extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(listaTablas);
 
-        jButton4.setText("Borra lista");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        borrarLista.setText("Borra lista");
+        borrarLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                borrarListaActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Borrar seleccion");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        borrarSeleccion.setText("Borrar seleccion");
+        borrarSeleccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                borrarSeleccionActionPerformed(evt);
             }
         });
 
@@ -168,12 +171,12 @@ public class p9 extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_tablasLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jButton3)))
+                        .addComponent(borrarSeleccion)))
                 .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tablasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_tablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(borrarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(52, 52, 52))
         );
@@ -188,8 +191,8 @@ public class p9 extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addGroup(panel_tablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(borrarSeleccion)
+                    .addComponent(borrarLista))
                 .addContainerGap())
         );
 
@@ -197,17 +200,17 @@ public class p9 extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(listaCampos);
 
-        jButton5.setText("Mostrar Campos");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        mostrarCampos.setText("Mostrar Campos");
+        mostrarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                mostrarCamposActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Borrar Campos");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        borrrCampos.setText("Borrar Campos");
+        borrrCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                borrrCamposActionPerformed(evt);
             }
         });
 
@@ -220,8 +223,8 @@ public class p9 extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
                 .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(mostrarCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(borrrCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
         panelCamposLayout.setVerticalGroup(
@@ -232,9 +235,9 @@ public class p9 extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(panelCamposLayout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addComponent(jButton5)
+                .addComponent(mostrarCampos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(borrrCampos)
                 .addGap(92, 92, 92))
         );
 
@@ -286,29 +289,40 @@ public class p9 extends javax.swing.JFrame {
                 tablasSeleccionadas.add(nombreTabla);
                 
             }
+            
+            this.borrarLista.setEnabled(true);
+            this.borrarSeleccion.setEnabled(true);
+
 
         } catch (SQLException ex) {
             Logger.getLogger(p9.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void borrarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarListaActionPerformed
         // TODO add your handling code here:
         modeloTablas.clear();
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
+        modeloCampos.clear();
+            
+        this.borrarLista.setEnabled(false);
+        this.borrarSeleccion.setEnabled(false);
+        this.borrrCampos.setEnabled(false);
+            
+    }//GEN-LAST:event_borrarListaActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void borrarSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarSeleccionActionPerformed
         // TODO add your handling code here:
         listaTablas.clearSelection();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_borrarSeleccionActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void borrrCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrrCamposActionPerformed
         // TODO add your handling code here:
         modeloCampos.clear();
-    }//GEN-LAST:event_jButton6ActionPerformed
+        this.borrrCampos.setEnabled(false);
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_borrrCamposActionPerformed
+
+    private void mostrarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarCamposActionPerformed
 
         modeloCampos.clear();
 
@@ -321,6 +335,7 @@ public class p9 extends javax.swing.JFrame {
         
         String nombreTabla;
         int seleccionados[] = listaTablas.getSelectedIndices();
+        this.borrrCampos.setEnabled(true);
         
         
         
@@ -338,55 +353,51 @@ public class p9 extends javax.swing.JFrame {
                 Logger.getLogger(p9.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_mostrarCamposActionPerformed
 
     private void closeWindow() throws SQLException {
-
-        Icon m = new ImageIcon("C:\\Users\\yusef\\Desktop\\icono_salir.jpg\\");
+            
+        Icon m = new ImageIcon("C:\\Users\\hola\\Desktop\\icono_salir.jpg\\");
         String[] options = {"Salir", "Cerrar sesiòn"};
         int exitValue = JOptionPane.showOptionDialog(null, 
-                "Es necesario que seleccione una opcion", 
-                "Titulo", 
+                "Que operacion desea realizar? ", 
+                "Salir", 
                 JOptionPane.DEFAULT_OPTION, 
                 JOptionPane.QUESTION_MESSAGE, 
                 m,
                 options,
                 options[0]);
         
-        if (exitValue == JOptionPane.YES_OPTION) {
+        if (exitValue == JOptionPane.OK_OPTION) {
             login.con.close();
             System.exit(0);
-        } else {
-            
-            // no crea la ventana login y cierra la ventana actual
-            System.out.println("estamos dentro de cerrar sesion");
+        } else if(exitValue == JOptionPane.NO_OPTION){
             new login().setVisible(true);
             this.setVisible(false);
-            System.exit(0);
-            
-            
+        }else{
+                    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
         }
 
-        
     }
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton borrarLista;
+    private javax.swing.JButton borrarSeleccion;
+    private javax.swing.JButton borrrCampos;
     private javax.swing.JToggleButton boton1;
     private javax.swing.JToggleButton boton2;
     private javax.swing.JToggleButton boton3;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList listaCampos;
     private javax.swing.JList listaTablas;
+    private javax.swing.JButton mostrarCampos;
     private javax.swing.JPanel panelCampos;
     private javax.swing.JPanel panel_tablas;
     // End of variables declaration//GEN-END:variables
