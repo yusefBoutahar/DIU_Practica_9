@@ -330,6 +330,8 @@ public class p9 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,
                 "Seleccione las tablas", "",
                 JOptionPane.INFORMATION_MESSAGE);
+                this.borrrCampos.setEnabled(false);
+
             return;
         }
         
@@ -337,8 +339,7 @@ public class p9 extends javax.swing.JFrame {
         int seleccionados[] = listaTablas.getSelectedIndices();
         this.borrrCampos.setEnabled(true);
         
-        
-        
+
         for (int seleccionado : seleccionados) {
             try {
                 nombreTabla = (String)tablasSeleccionadas.get(seleccionado);
@@ -374,10 +375,8 @@ public class p9 extends javax.swing.JFrame {
         } else if(exitValue == JOptionPane.NO_OPTION){
             new login().setVisible(true);
             this.setVisible(false);
-        }else{
-                    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
         }
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
     }
     
